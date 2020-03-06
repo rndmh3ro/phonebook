@@ -96,12 +96,14 @@ export class DashboardComponent implements OnInit {
       localStorage.clickcount = 1;
     }
     if (localStorage.clickcount%2 == 0) {
-      this.drawerOpen = true;
+      //this.drawerOpen = true;
       console.log('even');
+      return this.drawerOpen.open();
     }
     if (localStorage.clickcount%2 ==1) {
-      this.drawerOpen = false,
-      console.log('uneven');
+      //this.drawerOpen = false;
+      console.log('uneven');      
+      return this.drawerOpen.close();
     }
   }
 }
