@@ -64,7 +64,7 @@
   <div class="toggle-drawer">
     <button
       mat-icon-button
-      (click)="drawer.toggle()"
+      (click)="drawer.toggle(); hiddenDrawer()"
       i18n-matTooltio="
         DashboardComponent|Tooltip for expanding recently viewed people@@DashboardComponentButtonExpandTooltip
       "

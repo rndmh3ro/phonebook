@@ -1,7 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CdkDragEnd, CdkDragEnter, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
+import { Select, Store, Action, State, StateContext} from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Person, PhonebookSortDirection } from 'src/app/shared/models';
@@ -13,6 +13,22 @@ import { LastPersonsState, RemoveFromLastPersons, ResetLastPersons, SetLastPerso
   styleUrls: ['./dashboard.component.scss'],
   host: { class: 'pb-expand' }
 })
+
+export class HiddenDrawer {
+  static readonly type = '[Drawer] HiddenDrawer';
+}
+
+export interface HiddenDrawerState {
+  hidden: boolean;
+}
+
+@State<HiddenDrawerState>({
+  name: 'drawer',
+  defaults: {
+    hidden: false
+  }
+})
+
 export class DashboardComponent implements OnInit {
   @Select(LastPersonsState)
   public lastPersons$: Observable<Person[]>;
@@ -85,5 +101,15 @@ export class DashboardComponent implements OnInit {
 
   public removeFromBookmarkedPersons(person: Person) {
     this.store.dispatch(new ToggleBookmark(person));
+  }
+}
+export class DrawerState {
+  @Action(HiddenDrawer)
+  hiddenDrawer(ctx: StateContext<HiddenDrawerState>) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      hidden: !state.hidden
+    });
   }
 }
