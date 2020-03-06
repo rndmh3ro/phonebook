@@ -1,7 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CdkDragEnd, CdkDragEnter, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Select, Store, Action, State, StateContext} from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Person, PhonebookSortDirection } from 'src/app/shared/models';
@@ -12,21 +12,6 @@ import { LastPersonsState, RemoveFromLastPersons, ResetLastPersons, SetLastPerso
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   host: { class: 'pb-expand' }
-})
-
-export class HiddenDrawer {
-  static readonly type = '[Drawer] HiddenDrawer';
-}
-
-export interface HiddenDrawerState {
-  hidden: boolean;
-}
-
-@State<HiddenDrawerState>({
-  name: 'drawer',
-  defaults: {
-    hidden: false
-  }
 })
 
 export class DashboardComponent implements OnInit {
@@ -40,13 +25,13 @@ export class DashboardComponent implements OnInit {
   @Select(BookmarksState)
   public bookmarkedPersons$: Observable<Person[]>;
   public removedLastPersons: Person[] | null = null;
-  public drawerOpenByDefault: boolean = true;
+  public drawerOpen: boolean;
   constructor(private store: Store, private cd: ChangeDetectorRef, private breakpointObserver: BreakpointObserver,
     ) {}
 
   public ngOnInit() {
     this.changeOrder();
-    this.drawerOpenByDefault = this.breakpointObserver.isMatched('(min-width: 1500px)');
+    this.drawerOpen = this.breakpointObserver.isMatched('(min-width: 1500px)');
 
   }
 
@@ -102,14 +87,21 @@ export class DashboardComponent implements OnInit {
   public removeFromBookmarkedPersons(person: Person) {
     this.store.dispatch(new ToggleBookmark(person));
   }
-}
-export class DrawerState {
-  @Action(HiddenDrawer)
-  hiddenDrawer(ctx: StateContext<HiddenDrawerState>) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      hidden: !state.hidden
-    });
+
+  public setDrawer() {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } 
+    else {
+      localStorage.clickcount = 1;
+    }
+    if (localStorage.clickcount%2 == 0) {
+      this.drawerOpen = true;
+      console.log('even');
+    }
+    if (localStorage.clickcount%2 ==1) {
+      this.drawerOpen = false,
+      console.log('uneven');
+    }
   }
 }
