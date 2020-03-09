@@ -96,14 +96,23 @@ export class DashboardComponent implements OnInit {
       localStorage.clickcount = 1;
     }
     if (localStorage.clickcount%2 == 0) {
-      //this.drawerOpen = true;
+      this.drawerOpen = false;
+      localStorage.setItem('drawerSetting', JSON.stringify(this.drawerOpen));
       console.log('even');
-      return this.drawerOpen.open();
+      console.log(this.drawerOpen);
     }
     if (localStorage.clickcount%2 ==1) {
-      //this.drawerOpen = false;
-      console.log('uneven');      
-      return this.drawerOpen.close();
+      this.drawerOpen = true;
+      localStorage.setItem('drawerSetting', JSON.stringify(this.drawerOpen));
+      console.log('uneven');
+      console.log(this.drawerOpen);      
+    }
+    var drawerSet = localStorage.getItem('drawerSetting');
+    if (drawerSet = 'false') {
+      return this.drawerOpen = false;
+    }
+    if (drawerSet = 'true') {
+      return this.drawerOpen = true;
     }
   }
 }
