@@ -25,14 +25,13 @@ export class DashboardComponent implements OnInit {
   @Select(BookmarksState)
   public bookmarkedPersons$: Observable<Person[]>;
   public removedLastPersons: Person[] | null = null;
-  public drawerOpen: boolean;
-  constructor(private store: Store, private cd: ChangeDetectorRef, private breakpointObserver: BreakpointObserver,
+  public drawerOpen: boolean | null = true;
+  constructor(private store: Store, private cd: ChangeDetectorRef
     ) {}
 
   public ngOnInit() {
     this.changeOrder();
-    this.drawerOpen = this.breakpointObserver.isMatched('(min-width: 1500px)');
-
+    this.drawerOpen = JSON.parse(localStorage.getItem('drawerSetting'));
   }
 
   public changeOrder() {
@@ -90,29 +89,18 @@ export class DashboardComponent implements OnInit {
 
   public setDrawer() {
     if (localStorage.clickcount) {
-      localStorage.clickcount = Number(localStorage.clickcount)+1;
-    } 
+      localStorage.clickcount = Number(localStorage.clickcount) + 1;
+    }
     else {
       localStorage.clickcount = 1;
     }
-    if (localStorage.clickcount%2 == 0) {
+    if (localStorage.clickcount % 2 === 0) {
       this.drawerOpen = false;
       localStorage.setItem('drawerSetting', JSON.stringify(this.drawerOpen));
-      console.log('even');
-      console.log(this.drawerOpen);
     }
-    if (localStorage.clickcount%2 ==1) {
+    if (localStorage.clickcount % 2 === 1) {
       this.drawerOpen = true;
       localStorage.setItem('drawerSetting', JSON.stringify(this.drawerOpen));
-      console.log('uneven');
-      console.log(this.drawerOpen);      
-    }
-    var drawerSet = localStorage.getItem('drawerSetting');
-    if (drawerSet = 'false') {
-      return this.drawerOpen = false;
-    }
-    if (drawerSet = 'true') {
-      return this.drawerOpen = true;
     }
   }
 }
