@@ -5,7 +5,8 @@
     </mat-card-title>
     <mat-card-subtitle
       i18n="
-        SettingsComponent|Title description of the settings page@@SettingsComponentTitleDescription"
+         SettingsComponent|Title description of the settings page@@SettingsComponentTitleDescription
+      "
     >
       Change the theme or language of this application.
     </mat-card-subtitle>
@@ -36,7 +37,8 @@
           <mat-icon class="pb-margin-20">format_color_fill</mat-icon>
           <mat-form-field
             i18n-matTooltip="
-              navigationBar|Color Change Button Tooltip@@navigationBarColorChangerTooltip"
+               navigationBar|Color Change Button Tooltip@@navigationBarColorChangerTooltip
+            "
             matTooltip="Here you can change the color theme of the app."
           >
             <mat-select [value]="themeValue$ | async" (valueChange)="changeTheme($event)">

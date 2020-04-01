@@ -108,7 +108,10 @@ export class TableComponent implements OnInit, OnDestroy {
           const test = results.filter(
             (x) =>
               x.Id.toLowerCase() ===
-              this.store.selectSnapshot(SearchState.searchTerm).trim().toLowerCase()
+              this.store
+                .selectSnapshot(SearchState.searchTerm)
+                .trim()
+                .toLowerCase()
           );
           if (test.length === 1) {
             this.previewPerson = test[0];

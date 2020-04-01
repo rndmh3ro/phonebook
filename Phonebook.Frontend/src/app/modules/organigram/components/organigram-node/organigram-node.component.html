@@ -19,11 +19,13 @@
         (click)="toggleExpand()"
         *ngIf="node.children.length != 0"
         i18n-matTooltip="
-          OrganigramNodeComponent|Tooltip for expanding a Organigram
-          Node@@OrganigramNodeComponentExpandTooltip"
+           OrganigramNodeComponent|Tooltip for expanding a Organigram
+          Node@@OrganigramNodeComponentExpandTooltip
+        "
         i18n-aria-label="
-          OrganigramNodeComponent|Aria Label for expand Button on Organigram
-          Node@@OrganigramNodeComponentExpandAriaLabel"
+           OrganigramNodeComponent|Aria Label for expand Button on Organigram
+          Node@@OrganigramNodeComponentExpandAriaLabel
+        "
         aria-label="Button expanding or collapsing this node. "
         matTooltip="Expand or Collapse this node."
       >
@@ -33,7 +35,9 @@
         <div>
           <span
             i18n="
-              OrganigramNodeComponent|Supervisor Property@@OrganigramNodeComponentPropertySupervisor"
+               OrganigramNodeComponent|Supervisor
+              Property@@OrganigramNodeComponentPropertySupervisor
+            "
             >{node.supervisors.length, plural, =0 { No Supervisor } =1 { Supervisor: } other {
             Supervisors: }}</span
           >
@@ -44,7 +48,8 @@
         <div>
           <span
             i18n="
-              OrganigramNodeComponent|Assistant Property@@OrganigramNodeComponentPropertyAssistant"
+               OrganigramNodeComponent|Assistant Property@@OrganigramNodeComponentPropertyAssistant
+            "
             >{node.assistents.length, plural, =0 { No Assistant } =1 { Assistant: } other {
             Assistants: }}</span
           >
@@ -59,7 +64,8 @@
         <div *ngIf="node.employees.length > 0">
           <h2
             i18n="
-              OrganigramNodeComponent|Employee Property@@OrganigramNodeComponentPropertyEmployee"
+               OrganigramNodeComponent|Employee Property@@OrganigramNodeComponentPropertyEmployee
+            "
           >
             {node.employees.length, plural, =0 { No Employees } =1 { Employee: } other { Employees:
             }}

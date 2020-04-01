@@ -11,7 +11,7 @@ if (runtimeEnvironment.ravenURL) {
       environment: runtimeEnvironment.environment.toString(),
       release: VERSION,
       sanitizeKeys: ['currentUserName', 'userName'],
-      shouldSendCallback: function (data) {
+      shouldSendCallback: function(data) {
         return JSON.parse(localStorage.getItem('appstate') || '').sendFeedback || false;
       },
       ignoreUrls: ['localhost:4200'],

@@ -61,7 +61,8 @@
             mat-icon-button
             matTooltip="Found Incorrect Data? Report them!"
             i18n-matTooltip="
-              User-detailComponent|Tooltip Incorrect Data@@UserDetailComponentTooltipDataChange"
+               User-detailComponent|Tooltip Incorrect Data@@UserDetailComponentTooltipDataChange
+            "
             (click)="openInformationIncorrectDialog()"
           >
             <mat-icon>report_problem</mat-icon>
@@ -70,8 +71,9 @@
             mat-icon-button
             (click)="toggleBookmark()"
             i18n-matTooltip="
-              User-detailComponent|Tooltip for saving a person as
-              favourite@@UserDetailComponentTooltipBookmark"
+               User-detailComponent|Tooltip for saving a person as
+              favourite@@UserDetailComponentTooltipBookmark
+            "
             matTooltip="Bookmark this person"
           >
             <mat-icon>{{ bookmarked }}</mat-icon>
@@ -82,7 +84,9 @@
           mat-icon-button
           [matMenuTriggerFor]="menu"
           i18n-matTooltip="
-            User-detailComponent|Tooltip for opening the share menu@@UserDetailComponentTooltipShare"
+             User-detailComponent|Tooltip for opening the share
+            menu@@UserDetailComponentTooltipShare
+          "
           matTooltip="Share"
         >
           <mat-icon>share</mat-icon>
@@ -92,8 +96,9 @@
             <mat-icon>perm_contact_calendar</mat-icon>
             <span
               i18n="
-                User-detailComponent|Share Menu: Donwload Contact
-                Option@@UserDetailComponentShareDownloadContact"
+                 User-detailComponent|Share Menu: Donwload Contact
+                Option@@UserDetailComponentShareDownloadContact
+              "
               >Download Contact</span
             >
           </button>
@@ -107,8 +112,9 @@
             <mat-icon>chat</mat-icon>
             <span
               i18n="
-                User-detailComponent|Share Menu: Rocket Chat
-                Option@@UserDetailComponentShareRocketChat"
+                 User-detailComponent|Share Menu: Rocket Chat
+                Option@@UserDetailComponentShareRocketChat
+              "
               >Rocket Chat</span
             >
           </a>
@@ -134,8 +140,9 @@
           <h3
             mat-subheader
             i18n="
-              User-detailComponent|Subtitle for Contact
-              Details@@UserDetailComponentSubTitleContactDetails"
+               User-detailComponent|Subtitle for Contact
+              Details@@UserDetailComponentSubTitleContactDetails
+            "
           >
             Contact Details
           </h3>
@@ -179,8 +186,9 @@
           <h3
             mat-subheader
             i18n="
-              User-detailComponent|Subtitle for Further
-              Information@@UserDetailComponentSubTitleFurtherInformation"
+               User-detailComponent|Subtitle for Further
+              Information@@UserDetailComponentSubTitleFurtherInformation
+            "
           >
             Further Information
           </h3>
@@ -189,8 +197,9 @@
             <h4
               mat-line
               i18n="
-                Datapoint|Label for Person.Supervisor (direct supervisor)
-                @@DataPersonDirectSupervisor"
+                 Datapoint|Label for Person.Supervisor (direct supervisor)
+                @@DataPersonDirectSupervisor
+              "
             >
               Direct Supervisor
             </h4>
@@ -267,8 +276,9 @@
                 <span
                   class="mat-small"
                   i18n="
-                    User-detailComponent|Button to show the persons position in the
-                    organigram@@UserDetailComponentButtonShowInOrganigram"
+                     User-detailComponent|Button to show the persons position in the
+                    organigram@@UserDetailComponentButtonShowInOrganigram
+                  "
                   >Show in Organigram</span
                 >
               </a>
@@ -290,8 +300,9 @@
             <h4 mat-line>
               <ng-container
                 i18n="
-                  User-detailComponent|Combined location of the person (city, building, floor,
-                  room)@@UserDetailComponentLabelLocation"
+                   User-detailComponent|Combined location of the person (city, building, floor,
+                  room)@@UserDetailComponentLabelLocation
+                "
               >
                 Location
               </ng-container>
@@ -312,8 +323,9 @@
                 <span
                   class="mat-small"
                   i18n="
-                    User-detailComponent|Button to show the persons
-                    room@@UserDetailComponentButtonShowRoom"
+                     User-detailComponent|Button to show the persons
+                    room@@UserDetailComponentButtonShowRoom
+                  "
                 >
                   Show Room
                 </span>
@@ -333,7 +345,8 @@
           <mat-tab
             label="Roomplan"
             i18n-label="
-              UserDetailComponent|Tab Headline for Roomplan@@UserDetailComponentTabHeadlineRoomplan"
+               UserDetailComponent|Tab Headline for Roomplan@@UserDetailComponentTabHeadlineRoomplan
+            "
           >
             <div class="pb-roomplan" *ngIf="person.Location.RoomCollection[0].Description != null">
               <ng-container *ngIf="!person.isOfStatus(status.Fremdkraft)">
@@ -347,13 +360,15 @@
           <mat-tab
             label="Skills"
             i18n-label="
-              UserDetailComponent|Tab Headline for Skills@@UserDetailComponentTabHeadlineSkills"
+               UserDetailComponent|Tab Headline for Skills@@UserDetailComponentTabHeadlineSkills
+            "
           >
             <div
               class="pb-flex pb-skills"
               i18n="
-                User-detailComponent|Text for the upcoming skill tag
-                feature@@UserDetailComponenMessageContributeSkills"
+                 User-detailComponent|Text for the upcoming skill tag
+                feature@@UserDetailComponenMessageContributeSkills
+              "
             >
               This is where a coworkers skills would be shown. But this is still work in Progress,
               you can make it happen faster!
